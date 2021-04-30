@@ -1,4 +1,7 @@
 package com.example.nutrition.repository;
 
-public interface NutricionistaReository {
+import com.example.nutrition.datasousce.model.Nutricionista;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NutricionistaReository extends JpaRepository<Nutricionista, Long> {
 }
