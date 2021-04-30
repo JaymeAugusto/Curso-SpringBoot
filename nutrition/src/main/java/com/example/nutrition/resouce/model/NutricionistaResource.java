@@ -2,7 +2,7 @@ package com.example.nutrition.resouce.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class NutricionistaResource {
+public class NutricionistaResource{
 
     @JsonProperty("nome_nuticionista")
     private String nome;
