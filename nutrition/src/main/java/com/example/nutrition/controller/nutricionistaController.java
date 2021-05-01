@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class nutricionistaController {
 
-    @GetMapping(path = "api/nutricionista-id{}")
+    @GetMapping(path = "api/nutricionista-id{} ")
     public void buscarNutricionistaPorId(){
 
     }
