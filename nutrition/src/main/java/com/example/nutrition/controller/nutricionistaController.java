@@ -20,5 +20,7 @@ public class nutricionistaController {
     public ResponseEntity<Optional<Nutricionista>> buscarNutricionistaPorId(
             @PathVariable(name = "id", required = true) Long idNutricionista){
         return ResponseEntity.ok(nutricionistaReository.findById(idNutricionista));
+
+        //final
     }
 }
