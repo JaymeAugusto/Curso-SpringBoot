@@ -1,15 +1,18 @@
 package com.example.nutrition.datasousce.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "nutricionista")
-public class Nutricionista {
+@Entity
+@Table(name = "nutricionista")
+public class Nutricionista implements Serializable {
+
+    private static final long serialVersionUID = -2796979981601516225L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String nome;
@@ -21,15 +24,7 @@ public class Nutricionista {
     @Column(name = "id_paciente")
     private Long idPaciente;
 
-    public Nutricionista(String nome, LocalDate idade,
-                         String codigoRegistro, Long idPaciente) {
-        this.nome = nome;
-        this.idade = idade;
-        this.codigoRegistro = codigoRegistro;
-        this.idPaciente = idPaciente;
-    }
-
-    private Nutricionista() {
+    public Nutricionista() {
     }
 
     public String getNome() {
