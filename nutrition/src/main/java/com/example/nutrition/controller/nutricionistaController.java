@@ -1,13 +1,9 @@
 package com.example.nutrition.controller;
 
 import com.example.nutrition.datasousce.model.Nutricionista;
-import com.example.nutrition.repository.NutricionistaReository;
+import com.example.nutrition.repository.NutricionistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +13,7 @@ import java.util.Optional;
 public class nutricionistaController {
 
     @Autowired
-    private NutricionistaReository nutricionistaReository;
+    private NutricionistaRepository nutricionistaReository;
 
     @GetMapping(path = "/nutricionistas")
     public List<Nutricionista> buscarNutricionistas(){
@@ -28,5 +24,10 @@ public class nutricionistaController {
     public Optional<Nutricionista> buscarNutricionistasPorId(
             @PathVariable(name = "id", required = true) Long id){
         return nutricionistaReository.findById(id);
+    }
+
+    @PostMapping(path = "/nutricionista/save")
+    public void salvarNutricionista(@RequestBody Nutricionista nutricionista){
+        nutricionistaReository.save(nutricionista);
     }
 }
