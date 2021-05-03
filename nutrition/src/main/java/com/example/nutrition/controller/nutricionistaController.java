@@ -19,8 +19,14 @@ public class nutricionistaController {
     @Autowired
     private NutricionistaReository nutricionistaReository;
 
-    @GetMapping(path = "nutricionistas")
+    @GetMapping(path = "/nutricionistas")
     public List<Nutricionista> buscarNutricionistas(){
         return nutricionistaReository.findAll();
+    }
+
+    @GetMapping(path = "/nutricionista/id/{id}")
+    public Optional<Nutricionista> buscarNutricionistasPorId(
+            @PathVariable(name = "id", required = true) Long id){
+        return nutricionistaReository.findById(id);
     }
 }
