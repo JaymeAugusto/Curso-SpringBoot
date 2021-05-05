@@ -2,6 +2,7 @@ package com.example.nutrition.controller;
 
 import com.example.nutrition.datasousce.model.Nutricionista;
 import com.example.nutrition.repository.NutricionistaRepository;
+import com.example.nutrition.resouce.model.NutricionistaResource;
 import com.example.nutrition.service.BuscarNutricionistaServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,7 @@ public class nutricionistaController {
     }
 
     @PostMapping(path = "/nutricionista/save")
-    public void salvarNutricionista(@RequestBody Nutricionista nutricionista){
+    public void salvarNutricionista(@RequestBody NutricionistaResource nutricionista){
         nutricionistaRepository.save(nutricionista);
     }
 
