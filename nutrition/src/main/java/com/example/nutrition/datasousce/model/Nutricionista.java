@@ -1,9 +1,10 @@
 package com.example.nutrition.datasousce.model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import lombok.NonNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "nutricionista")
@@ -21,7 +22,8 @@ public class Nutricionista implements Serializable {
     @Column(name = "codigo_registro")
     private String codigoRegistro;
 
-    @Column(name = "id_paciente")
+    @Column(name = "id_paciente", nullable = false)
+    @NonNull
     private Long idPaciente;
 
     public Nutricionista() {
