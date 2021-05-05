@@ -13,21 +13,26 @@ import java.util.Optional;
 public class nutricionistaController {
 
     @Autowired
-    private NutricionistaRepository nutricionistaReository;
+    private NutricionistaRepository nutricionistaRepository;
 
     @GetMapping(path = "/nutricionistas")
     public List<Nutricionista> buscarNutricionistas(){
-        return nutricionistaReository.findAll();
+        return nutricionistaRepository.findAll();
     }
 
     @GetMapping(path = "/nutricionista/id/{id}")
     public Optional<Nutricionista> buscarNutricionistasPorId(
             @PathVariable(name = "id", required = true) Long id){
-        return nutricionistaReository.findById(id);
+        return nutricionistaRepository.findById(id);
     }
 
     @PostMapping(path = "/nutricionista/save")
     public void salvarNutricionista(@RequestBody Nutricionista nutricionista){
-        nutricionistaReository.save(nutricionista);
+        nutricionistaRepository.save(nutricionista);
+    }
+
+    @DeleteMapping(path = "/nutricionista/delete/{id}")
+    public void deleteNutricionista(@PathVariable(name = "id", required = true) Long id){
+        nutricionistaRepository.deleteById(id);
     }
 }
