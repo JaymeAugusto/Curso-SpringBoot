@@ -2,6 +2,7 @@ package com.example.nutrition.controller;
 
 import com.example.nutrition.datasousce.model.Nutricionista;
 import com.example.nutrition.repository.NutricionistaRepository;
+import com.example.nutrition.service.BuscarNutricionistaServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +16,12 @@ public class nutricionistaController {
     @Autowired
     private NutricionistaRepository nutricionistaRepository;
 
+    @Autowired
+    private BuscarNutricionistaServiceImp seviceBuscar;
+
     @GetMapping(path = "/nutricionistas")
     public List<Nutricionista> buscarNutricionistas(){
-        return nutricionistaRepository.findAll();
+        return seviceBuscar.buscarTodosOsNutricionistas();
     }
 
     @GetMapping(path = "/nutricionista/id/{id}")
