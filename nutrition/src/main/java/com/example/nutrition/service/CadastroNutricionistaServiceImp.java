@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CadastroNutricionista {
+public class CadastroNutricionistaServiceImp {
 
     @Autowired
     private NutricionistaRepository nutricionistaReository;
@@ -16,7 +16,7 @@ public class CadastroNutricionista {
     @Autowired
     private NutricionistaConversor service;
 
-    private static final Logger LOG = Logger.getLogger(CadastroNutricionista.class);
+    private static final Logger LOG = Logger.getLogger(CadastroNutricionistaServiceImp.class);
 
     public void cadastro(NutricionistaResource nutricionistaResource){
         try {
