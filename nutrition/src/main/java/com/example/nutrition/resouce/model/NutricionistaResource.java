@@ -53,4 +53,14 @@ public class NutricionistaResource{
     public void setIdPaciente(String idPaciente) {
         this.idPaciente = idPaciente;
     }
+
+    @Override
+    public String toString() {
+        return "NutricionistaResource{" +
+                "nome='" + nome + '\'' +
+                ", idade='" + idade + '\'' +
+                ", condigoRegistro='" + condigoRegistro + '\'' +
+                ", idPaciente='" + idPaciente + '\'' +
+                '}';
+    }
 }

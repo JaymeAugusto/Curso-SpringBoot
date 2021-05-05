@@ -4,6 +4,7 @@ import com.example.nutrition.datasousce.model.Nutricionista;
 import com.example.nutrition.repository.NutricionistaRepository;
 import com.example.nutrition.resouce.model.NutricionistaResource;
 import com.example.nutrition.service.BuscarNutricionistaServiceImp;
+import com.example.nutrition.service.CadastroNutricionista;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,9 @@ public class nutricionistaController {
     @Autowired
     private BuscarNutricionistaServiceImp seviceBuscar;
 
+    @Autowired
+    private CadastroNutricionista serviceCadastro;
+
     @GetMapping(path = "/nutricionistas")
     public List<Nutricionista> buscarNutricionistas(){
         return seviceBuscar.buscarTodosOsNutricionistas();
@@ -33,7 +37,7 @@ public class nutricionistaController {
 
     @PostMapping(path = "/nutricionista/save")
     public void salvarNutricionista(@RequestBody NutricionistaResource nutricionista){
-        nutricionistaRepository.save(nutricionista);
+        serviceCadastro.cadastro(nutricionista);
     }
 
     @DeleteMapping(path = "/nutricionista/delete/{id}")
