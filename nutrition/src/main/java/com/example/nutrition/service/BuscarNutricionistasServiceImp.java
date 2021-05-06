@@ -5,24 +5,17 @@ import com.example.nutrition.repository.NutricionistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
-public class BuscarNutricionistaServiceImp {
+public class BuscarNutricionistasServiceImp {
 
     @Autowired
     private NutricionistaRepository nutricionistaRepository;
 
-    public void buscarPorId(Long id){
-        Optional<Nutricionista> optionalNutricionista = nutricionistaRepository.findById(id);
-        if (!optionalNutricionista.isPresent()){
-
-        }
-
-
-    }
-
-    public void deletarPorId(Long id){
-        nutricionistaRepository.deleteById(id);
+    public List<Nutricionista> buscarTodosOsNutricionistas(){
+        List<Nutricionista> listNutricionista =
+                nutricionistaRepository.findAll();
+        return listNutricionista;
     }
 }
