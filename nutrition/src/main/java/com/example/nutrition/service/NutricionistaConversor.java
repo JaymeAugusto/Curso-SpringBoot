@@ -9,8 +9,7 @@ import java.time.LocalDate;
 @Component
 public class NutricionistaConversor {
 
-    public Nutricionista conversor(
-            NutricionistaResource nutricionistaResource){
+    public Nutricionista conversor(NutricionistaResource nutricionistaResource){
         try {
             Nutricionista nutricionista = new Nutricionista();
 
@@ -20,7 +19,7 @@ public class NutricionistaConversor {
 
             nutricionista.setidPaciente(idPaciente);
             nutricionista.setIdade(idade);
-            nutricionista.setCodigoRegistro(nutricionistaResource.getCondigoRegistro());
+            nutricionista.setCodigoRegistro(nutricionistaResource.getCodigoRegistro());
             nutricionista.setNome(nutricionistaResource.getNome());
 
             return nutricionista;
